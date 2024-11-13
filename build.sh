@@ -3,16 +3,16 @@
 # https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-docker-image.html#
 #
 # Run HTTP server for OTA update:
-#   python -m http.server --directory build
+# python -m http.server --directory build
 
 ESPTOOL="python /mnt/code/esp32/esptool/esptool.py"
 if [ -z "$IDF_DOCKER_IMAGE" ]; then
-    IDF_DOCKER_IMAGE="espressif/idf:release-v5.2"
+    IDF_DOCKER_IMAGE="espressif/idf:release-v5.3"
 fi
 echo "Using esp-idf image: $IDF_DOCKER_IMAGE"
 
 if [ -z "$ESPTOOL_PORT" ] ; then
-    ESPTOOL_PORT=/dev/ttyUSB0
+    ESPTOOL_PORT=/dev/ttyACM0
 fi
 echo "Using serial port: $ESPTOOL_PORT"
 
